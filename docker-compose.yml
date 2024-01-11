@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  frontend:
+    container_name: ${APP_NAME}
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Zurich
+    #volumes:
+    #  - ./:/app/
+    ports:
+      - 3000
+    networks:
+      - default
+      - proxy
+    build:
+        context: ./
+    labels:
+      # Frontend
+      - "traefik.http.routers.${APP_NAME}-nextjs.rule=Host(`${HOSTNAME}`)"
+      - "traefik.enable=true"
+      - "traefik.http.routers.${APP_NAME}-nextjs.entryPoints=websecure"
+      - "traefik.http.services.${APP_NAME}-nextjs.loadbalancer.server.port=3000"
+      - "traefik.http.routers.${APP_NAME}-nextjs.tls=true"
+      - "traefik.http.routers.${APP_NAME}-nextjs.tls.certresolver=leresolver"
+      - "traefik.http.routers.${APP_NAME}-nextjs.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=netnode:$$apr1$$auekidRk$$VwltF9XdS4OPufteMwuCV1" # netnode/T3stdom@in
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+networks:
+  proxy:
+    external: true
+    name: proxy

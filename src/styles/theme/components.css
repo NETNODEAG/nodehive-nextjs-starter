@@ -1,0 +1,26 @@
+@layer components {
+  /*
+  Container
+  */
+  .max-container {
+    @apply w-full mx-auto max-w-7xl;
+  }
+
+  .container-wrapper {
+    @apply px-4 max-container md:px-8;
+  }
+
+  /*
+  Paragraphs
+  */
+  .paragraph {
+    @apply my-8 first:mt-0 last:mb-0;
+  }
+
+  /*
+  Links
+  */
+  .link {
+    @apply text-base underline underline-offset-2;
+  }
+}

@@ -1,0 +1,11 @@
+DOCKER_PROD_IP=167.235.77.97
+DOCKER_PROD_HOST=docker1.netnode.cloud
+DOCKER_PROD_USER=root
+DOCKER_PROD_DOCKER_PATH=/root/domain.ch
+
+DOCKER_PROD_IP=91.107.237.199
+DOCKER_PROD_HOST=docker2.netnode.cloud
+DOCKER_PROD_USER=root
+DOCKER_PROD_DOCKER_PATH=/root/domain.ch
+
+BITBUCKET_URL=https://bitbucket.org/NETNODEAG/domain.ch
