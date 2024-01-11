@@ -1,4 +1,4 @@
-# nn-nextjs-starter
+# nodehive-nextjs-starter
 
 ## 1. Installation
 
@@ -9,13 +9,7 @@ Create a new Next.js app using one of the following starter templates, where eve
 **Basic starter**
 
 ```
-npx create-next-app frontend.example.ch -e https://github.com/NETNODEAG/nn-nextjs-starter/tree/13
-```
-
-**Drupal specific starter**
-
-```
-npx create-next-app frontend.example.ch -e https://github.com/NETNODEAG/nn-nextjs-starter/tree/drupal
+npx create-next-app frontend.example.ch -e https://github.com/NETNODEAG/nodehive-nextjs-starter.git
 ```
 
 ### 1.2 Linking Your Frontend to Drupal
