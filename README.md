@@ -10,6 +10,11 @@ Create a new Next.js app using one of the following starter templates, where eve
 
 ```
 npx create-next-app frontend.example.ch -e https://github.com/NETNODEAG/nodehive-nextjs-starter/tree/main
+cd frontend.example.ch
+cp .env.example .env
+open localhost:3000
+npm run dev
+
 ```
 
 ### 1.2 Linking Your Frontend to Drupal
