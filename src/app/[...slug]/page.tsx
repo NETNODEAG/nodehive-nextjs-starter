@@ -9,7 +9,8 @@ import NodePage from '@/components/node/node-page/NodePage';
 interface PageProps {
   params: { slug: Array<string> };
 }
-
+/* 
+// Uncomment this function to enable dynamic metadata
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -44,7 +45,7 @@ export async function generateMetadata({
       ],
     },
   };
-}
+}*/
 
 export default async function Page({ params }: PageProps) {
   const client = createServerClient();
@@ -59,13 +60,27 @@ export default async function Page({ params }: PageProps) {
   // Join the slug array into a string
   const slugString = slug.join('/');
 
+  console.log('slugString', slugString);
+
   // Retrieve a resource, utilizing its unique slug as the identifier
   const entity = await client.getResourceBySlug(slugString);
+
+  console.log('entity', entity);
 
   // Redirect to the 404 page using the notFound() function if no entity is received
   if (!entity) {
     notFound();
   }
 
-  return <>{entity?.type === 'node--page' && <NodePage node={entity} />}</>;
+  return <>
+    {entity?.data.type == 'node--page' && <NodePage node={entity} />}
+    {
+      <details open className="mt-10 mb-10 container mx-auto px-4 rounded-md bg-black p-8 text-xs text-slate-50">
+        <summary>API JSON Output</summary>
+        <pre className="">
+          {JSON.stringify(entity, null, 2)}
+        </pre>
+      </details>
+      }
+  </>;
 }
