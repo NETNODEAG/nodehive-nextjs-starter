@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { NodeHiveClient } from 'nodehive-js';
+import { NodeHiveConfig } from '@/config/nodehive.config';
 
 export const createServerClient = () => {
   const token = cookies().get('userToken');
@@ -11,6 +12,7 @@ export const createServerClient = () => {
 
   const nodehiveClient = new NodeHiveClient(
     process.env.NEXT_PUBLIC_DRUPAL_REST_BASE_URL,
+    NodeHiveConfig,
     options
   );
 
