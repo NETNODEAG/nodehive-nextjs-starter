@@ -1,5 +1,5 @@
-import HeaderLogo from './header-logo';
-import HeaderNavigation from './header-navigation';
+import HeaderLogo from './header/header-logo';
+import HeaderNavigation from './header/header-navigation';
 
 export default async function Header() {
   return (

@@ -5,10 +5,14 @@ import { isParagraphType, paragraphTypes } from './paragraphs';
 interface ParagraphProps {
   paragraph: DrupalParagraph;
 }
+
 export default function Paragraph({ paragraph }: ParagraphProps) {
-  if (isParagraphType(paragraph.type)) {
-    const ParagraphInstance = paragraphTypes[paragraph.type];
+  const paragraphType = paragraph?.type;
+
+  if (isParagraphType(paragraphType)) {
+    const ParagraphInstance = paragraphTypes[paragraphType];
     return <ParagraphInstance paragraph={paragraph} />;
   }
+
   return null;
 }

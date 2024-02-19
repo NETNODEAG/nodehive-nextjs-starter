@@ -1,6 +1,6 @@
 import { siteConfig } from '@/config/site';
-import Footer from '@/components/layout/footer/Footer';
-import Header from '@/components/layout/header/Header';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
 
 import '@/styles/globals.css';
 

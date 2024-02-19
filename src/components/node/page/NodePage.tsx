@@ -2,13 +2,13 @@ import { DrupalNode, DrupalParagraph } from 'next-drupal';
 
 import Paragraph from '@/components/paragraph/Paragraph';
 
-interface NodePageProps {
+export interface NodePageProps {
   node: DrupalNode;
 }
 
 export default function NodePage({ node }: NodePageProps) {
-  const title = node.data.title;
-  const paragraphs = node.data.field_paragraphs;
+  const title = node?.data?.title;
+  const paragraphs = node?.data?.field_paragraphs;
 
   return (
     <article className="container mx-auto" data-node-type="Page">
@@ -26,6 +26,7 @@ export default function NodePage({ node }: NodePageProps) {
               <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
                 {paragraph.type}
               </p>
+
               <Paragraph paragraph={paragraph} />
             </div>
           );
