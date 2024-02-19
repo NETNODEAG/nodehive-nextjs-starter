@@ -1,23 +1,14 @@
-import Link from 'next/link';
-
-import { getDrupalMenu } from '@/lib/jsonapi/menu/get-menu';
+import HeaderLogo from './header-logo';
+import HeaderNavigation from './header-navigation';
 
 export default async function Header() {
-  const mainNavigation = await getDrupalMenu('main');
-
   return (
-    <header>
-      <Link href="/">nn-nextjs-starter</Link>
+    <header className="sticky top-0 bg-white shadow-sm">
+      <div className="container mx-auto flex items-center justify-between px-4 py-8 lg:px-0">
+        <HeaderLogo />
 
-      <nav>
-        <ul>
-          {mainNavigation.map((item) => (
-            <li key={item.id}>
-              <Link href={item.url}>{item.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <HeaderNavigation menuId="green-bowl-lille-mainnavigation" />
+      </div>
     </header>
   );
 }

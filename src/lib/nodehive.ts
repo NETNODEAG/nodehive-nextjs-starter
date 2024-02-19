@@ -1,13 +1,14 @@
 import { cookies } from 'next/headers';
 import { NodeHiveClient } from 'nodehive-js';
+
 import { NodeHiveConfig } from '@/config/nodehive.config';
 
 export const createServerClient = () => {
-  const token = cookies().get('userToken');
+  const userToken = cookies().get('userToken')?.value;
   let options = {};
 
-  if (token && token.value) {
-    options = { token: token.value };
+  if (userToken) {
+    options = { token: userToken };
   }
 
   const nodehiveClient = new NodeHiveClient(

@@ -1,12 +1,7 @@
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { siteConfig } from '@/config/site';
-
 import { createServerClient } from '@/lib/nodehive';
-import { absoluteUrl } from '@/lib/utils';
-import NodePage from '@/components/node/node-page/NodePage';
-
+import NodePage from '@/components/node/page/node-page';
 
 export default async function RootPage() {
   const client = createServerClient();
@@ -21,15 +16,18 @@ export default async function RootPage() {
     notFound();
   }
 
-  return <>
-    {entity?.data.type == 'node--page' && <NodePage node={entity} />}
-    {
-      <details open className="container mx-auto px-4">
-        <summary>JSON Output</summary>
-        <pre className="rounded-md bg-black p-8 text-xs text-slate-50">
-          {JSON.stringify(entity, null, 2)}
-        </pre>
-      </details>
+  return (
+    <>
+      {entity?.data.type == 'node--page' && <NodePage node={entity} />}
+
+      {
+        <details className="container mx-auto mb-10 mt-10 rounded-md bg-black p-8 px-4 text-xs text-slate-50">
+          <summary className="cursor-pointer font-bold">
+            API JSON Output
+          </summary>
+          <pre className="mt-8">{JSON.stringify(entity, null, 2)}</pre>
+        </details>
       }
-  </>;
+    </>
+  );
 }

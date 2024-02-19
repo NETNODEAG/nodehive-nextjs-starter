@@ -1,21 +1,11 @@
-import Link from 'next/link';
-
-import { getDrupalMenu } from '@/lib/jsonapi/menu/get-menu';
-
 export default async function Footer() {
-  const footerNavigation = await getDrupalMenu('footer');
-
   return (
-    <footer>
-      <nav>
-        <ul>
-          {footerNavigation.map((item) => (
-            <li key={item.id}>
-              <Link href={item.url}>{item.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <footer className="bg-neutral-900 text-white">
+      <div className="container mx-auto flex items-center justify-center px-4 py-8 lg:px-0">
+        <p className="text-center text-sm font-semibold">
+          NETNODE AG / NodeHive Next.js Starter
+        </p>
+      </div>
     </footer>
   );
 }

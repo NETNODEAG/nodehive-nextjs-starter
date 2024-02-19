@@ -18,11 +18,17 @@ export default function NodePage({ node }: NodePageProps) {
 
       {Array.isArray(paragraphs) &&
         paragraphs?.map((paragraph: DrupalParagraph) => {
-          return <div className="w-full p-10 mb-5 overflow-hidden rounded-lg ring-1 ring-slate-900/10">
-            <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">{paragraph.type}</p>
-            <Paragraph key={paragraph.id} paragraph={paragraph} />
-
-            </div>;
+          return (
+            <div
+              key={paragraph.id}
+              className="mb-5 w-full overflow-hidden rounded-lg p-10 ring-1 ring-slate-900/10"
+            >
+              <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+                {paragraph.type}
+              </p>
+              <Paragraph paragraph={paragraph} />
+            </div>
+          );
         })}
     </article>
   );
