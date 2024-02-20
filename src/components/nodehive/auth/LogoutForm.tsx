@@ -1,6 +1,6 @@
 'use client';
 
-import { logout } from '@/server/actions/_auth';
+import { logout } from '@/actions/_auth';
 import { useFormStatus } from 'react-dom';
 
 import { cn } from '@/lib/utils';
