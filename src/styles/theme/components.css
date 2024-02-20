@@ -21,6 +21,20 @@
   Links
   */
   .link {
-    @apply text-base underline underline-offset-2;
+    @apply text-base font-bold underline decoration-2 underline-offset-2;
+  }
+
+  /*
+  Buttons
+  */
+  .btn {
+    @apply inline-flex h-fit items-center justify-center rounded-full px-5 py-1.5 text-base font-bold no-underline;
+    @apply transition-colors ease-in-out;
+  }
+
+  .btn-primary {
+    @apply btn;
+    @apply text-white border border-transparent bg-neutral-900;
+    @apply hover:border-neutral-900 hover:bg-white hover:text-neutral-900;
   }
 }

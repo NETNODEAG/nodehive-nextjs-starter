@@ -1,9 +1,16 @@
-import Link from 'next/link';
+import { createServerClient } from '@/lib/nodehive';
+import FragmentSpaceLogo from '@/components/fragment/FragmentSpaceLogo';
 
-export default function HeaderLogo() {
-  return (
-    <Link href="/" className="font-bold">
-      NodeHive Next.js Starter
-    </Link>
-  );
+export default async function HeaderLogo() {
+  const client = createServerClient();
+
+  // TODO: Get the fragment from the server
+  // const fragment = await client.getFragment(
+  //   '79261be4-ca1a-4959-878f-b07fe4ed3e18',
+  //   'space_logo'
+  // );
+
+  const fragment = null;
+
+  return <FragmentSpaceLogo fragment={fragment} />;
 }

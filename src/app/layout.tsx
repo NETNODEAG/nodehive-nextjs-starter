@@ -34,7 +34,9 @@ export default async function RootLayout({ children }: LayoutProps) {
           <Header />
 
           <div className="flex-[1_0_auto]">
-            <main>{children}</main>
+            <main className="container mx-auto my-16 px-4 md:px-8">
+              {children}
+            </main>
           </div>
 
           <Footer />
