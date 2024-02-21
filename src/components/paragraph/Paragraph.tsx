@@ -1,5 +1,6 @@
 import { DrupalParagraph } from 'next-drupal';
 
+import VisualEditorParagraphWrapper from '@/components/nodehive/visualeditor/VisualEditorParagraphWrapper';
 import { isParagraphType, paragraphTypes } from './paragraphs';
 
 interface ParagraphProps {
@@ -11,7 +12,11 @@ export default function Paragraph({ paragraph }: ParagraphProps) {
 
   if (isParagraphType(paragraphType)) {
     const ParagraphInstance = paragraphTypes[paragraphType];
-    return <ParagraphInstance paragraph={paragraph} />;
+    return (
+      <VisualEditorParagraphWrapper entity={paragraph}>
+        <ParagraphInstance paragraph={paragraph} />
+      </VisualEditorParagraphWrapper>
+    );
   }
 
   return null;
