@@ -19,10 +19,11 @@ function LogoutButton() {
   return (
     <button
       className={cn(
-        'block rounded-full bg-white p-2 text-neutral-900',
+        'flex h-[32px] w-[32px] items-center justify-center rounded-full text-white transition-colors hover:bg-neutral-700',
         pending ? 'text-neutral-900/50' : 'cursor-pointer'
       )}
     >
+      <span className="sr-only">Logout</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
