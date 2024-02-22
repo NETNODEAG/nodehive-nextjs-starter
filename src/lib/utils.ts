@@ -42,3 +42,23 @@ export function absoluteUrl(input: string) {
 export function isRelative(url: string) {
   return !new RegExp('^(?:[a-z]+:)?//', 'i').test(url);
 }
+
+/**
+ * This function is used to transform an internal link uri to a slug
+ * Example: entity:node/123 -> /de/node/123
+ *
+ * @param uri - The internal link uri
+ * @returns The slug
+ */
+export function internalLinkUriToSlug(uri: string) {
+  // Return null if uri is falsy or an empty string
+  if (!uri || uri.trim() === '') return null;
+
+  // If uri contains 'entity:node/', replace 'entity:' with '/{lang}/'
+  if (uri.includes('entity:node/')) {
+    return uri.replace('entity:', `/`);
+  }
+
+  // Return uri if it doesn't contain 'entity:node/'
+  return uri;
+}
