@@ -11,7 +11,12 @@ export default function FragmentCallToAction({ fragment }) {
 
   return (
     <div className="flex justify-center">
-      <Link href={ctaUrl} className="btn btn-primary">
+      <Link
+        href={ctaUrl}
+        className="btn btn-primary"
+        target={ctaUrl.startsWith('http') ? '_blank' : '_self'}
+        rel={ctaUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+      >
         {ctaLabel}
       </Link>
     </div>

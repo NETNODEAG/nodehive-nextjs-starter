@@ -28,7 +28,7 @@
   Buttons
   */
   .btn {
-    @apply inline-flex h-fit items-center justify-center rounded-full px-5 py-1.5 text-base font-bold no-underline;
+    @apply inline-flex h-fit items-center justify-center rounded-md px-5 py-1.5 text-base font-bold no-underline;
     @apply transition-colors ease-in-out;
   }
 
