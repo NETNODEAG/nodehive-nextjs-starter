@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { Logo } from '@/lib/icons';
 import { absoluteUrl } from '@/lib/utils';
-import Logo from '/public/logo.svg';
 
 export default async function FragmentSpaceLogo({ fragment }) {
   const logo = fragment?.data?.field_logo;
