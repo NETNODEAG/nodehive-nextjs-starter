@@ -5,7 +5,7 @@ import { Logo } from '@/lib/icons';
 import { absoluteUrl } from '@/lib/utils';
 
 export default async function FragmentSpaceLogo({ fragment }) {
-  const logo = fragment?.data?.field_logo;
+  const logo = fragment?.field_logo;
 
   return (
     <Link href="/" className="block">

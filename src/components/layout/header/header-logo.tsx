@@ -1,6 +1,6 @@
 import { createServerClient } from '@/nodehive/client';
 
-import FragmentSpaceLogo from '@/components/fragment/FragmentSpaceLogo';
+import FragmentSpaceLogo from '@/components/fragment/space-logo/FragmentSpaceLogo';
 
 export default async function HeaderLogo() {
   const client = createServerClient();
@@ -10,5 +10,5 @@ export default async function HeaderLogo() {
     'space_logo'
   );
 
-  return <FragmentSpaceLogo fragment={fragment} />;
+  return <FragmentSpaceLogo fragment={fragment?.data} />;
 }

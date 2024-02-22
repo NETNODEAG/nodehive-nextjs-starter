@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { internalLinkUriToSlug } from '@/lib/utils';
 
 export default function FragmentCallToAction({ fragment }) {
-  const cta = fragment?.data?.field_cta_link;
+  const cta = fragment?.field_cta_link;
   const ctaUrl = internalLinkUriToSlug(cta?.uri);
   const ctaLabel = cta?.title;
 
