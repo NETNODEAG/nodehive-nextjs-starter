@@ -1,6 +1,6 @@
 import { createServerClient } from '@/nodehive/client';
 
-import FragmentCallToAction from '@/components/fragment/cta/FragmentCallToAction';
+import Fragment from '@/components/fragment/Fragment';
 
 export default async function HeaderCallToAction() {
   const client = createServerClient();
@@ -10,5 +10,5 @@ export default async function HeaderCallToAction() {
     'cta'
   );
 
-  return <FragmentCallToAction fragment={fragment?.data} />;
+  return <Fragment fragment={fragment?.data} />;
 }

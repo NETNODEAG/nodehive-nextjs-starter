@@ -1,43 +1,38 @@
-import VisualEditButton from './VisualComponentEditButton';
+import FragmentEditButton from './FragmentEditButton';
 
-export default function VisualEditorParagraphWrapper({
+export default function VisualEditorFragmentWrapper({
   entity,
   enable = true,
   editmode = 'sidebar',
   children,
 }) {
-  const { meta, type, parent_id, id } = entity;
+  const { meta, type, id } = entity;
   const { drupal_internal__target_id } = meta || {};
 
   if (!type) {
     return <div>no visual editor {children}</div>;
   }
 
-  // Preparing dynamic ID
-  const dynamicId = `node-${entity.meta.drupal_internal__target_id}`;
-
   return (
     <div
-      id={dynamicId}
-      paragraph-type={type}
+      id={id}
+      fragment-type={type}
       data-nodehive-enable={enable.toString()}
       data-nodehive-editmode={editmode} // edit-form, sidebar, modal, inline
-      data-nodehive-type="paragraph"
-      data-nodehive-parent_id={parent_id}
+      data-nodehive-type="fragment"
       data-nodehive-id={drupal_internal__target_id}
       data-nodehive-uuid={id}
-      className="relative overflow-hidden rounded-lg p-2 ring-2 ring-neutral-900/10 md:p-6"
+      className="relative overflow-hidden rounded-lg p-2 ring-2 ring-neutral-900/10 md:p-2"
     >
       <p className="mb-2 max-w-2xl text-xs leading-6 text-neutral-500">
         {type}
       </p>
 
-      <VisualEditButton
-        label="Edit Paragraph"
-        type="paragraph"
+      <FragmentEditButton
+        label="Edit Fragment"
+        type="fragment"
         uuid={id}
         id={drupal_internal__target_id}
-        parentId={parent_id}
       />
 
       {children}

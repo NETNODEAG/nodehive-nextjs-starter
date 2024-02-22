@@ -1,3 +1,4 @@
+import VisualEditorFragmentWrapper from '@/components/nodehive/visualeditor/fragment/VisualEditorFragmentWrapper';
 import { fragmentTypes, isFragmentType } from './fragments';
 
 export default function Fragment({ fragment }) {
@@ -5,7 +6,11 @@ export default function Fragment({ fragment }) {
 
   if (isFragmentType(fragmentType)) {
     const FragmentInstance = fragmentTypes[fragmentType];
-    return <FragmentInstance fragment={fragment} />;
+    return (
+      <VisualEditorFragmentWrapper entity={fragment}>
+        <FragmentInstance fragment={fragment} />
+      </VisualEditorFragmentWrapper>
+    );
   }
 
   return null;
