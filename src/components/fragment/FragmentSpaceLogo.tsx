@@ -2,9 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { absoluteUrl } from '@/lib/utils';
+import Logo from '/public/logo.svg';
 
 export default async function FragmentSpaceLogo({ fragment }) {
-  const logo = fragment?.field_logo;
+  const logo = fragment?.data?.field_logo;
 
   return (
     <Link href="/" className="block">
@@ -12,12 +13,12 @@ export default async function FragmentSpaceLogo({ fragment }) {
         <Image
           src={absoluteUrl(logo?.uri?.url)}
           alt={logo?.filename}
-          width={200}
-          height={200}
-          className="max-h-[35px] w-auto"
+          width={160}
+          height={160}
+          className="max-h-[29px] w-auto"
         />
       ) : (
-        <span className="font-bold">NodeHive Next.js Starter</span>
+        <Logo className="h-[29px] max-w-[160px]" />
       )}
     </Link>
   );
