@@ -1,4 +1,4 @@
-import { siteConfig } from '@/nodehive/space.config';
+import { spaceConfig } from '@/nodehive/space.config';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
@@ -10,17 +10,18 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const { spaceMetadata } = spaceConfig;
+
 /**
  * The metadata
  * @type {Metadata}
  */
 export const metadata: Metadata = {
-  title: {
-    template: '%s | Netnode',
-    default: siteConfig?.title,
-  },
-  description: siteConfig?.description,
-  metadataBase: new URL(siteConfig?.url),
+  metadataBase: new URL(spaceMetadata.baseUrl),
+  title: spaceMetadata?.title,
+  description: spaceMetadata?.description,
+  icons: spaceMetadata?.icons,
+  openGraph: spaceMetadata?.openGraph,
 };
 
 interface LayoutProps {
