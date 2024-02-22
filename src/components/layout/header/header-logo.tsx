@@ -1,4 +1,5 @@
-import { createServerClient } from '@/lib/nodehive';
+import { createServerClient } from '@/nodehive/client';
+
 import FragmentSpaceLogo from '@/components/fragment/FragmentSpaceLogo';
 
 export default async function HeaderLogo() {

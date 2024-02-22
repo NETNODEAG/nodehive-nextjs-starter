@@ -1,4 +1,4 @@
-import { createServerClient } from '@/lib/nodehive';
+import { createServerClient } from '@/nodehive/client';
 
 export default async function SmartActionsUserProfile() {
   const client = createServerClient();

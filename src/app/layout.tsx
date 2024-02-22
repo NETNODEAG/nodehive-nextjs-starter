@@ -1,4 +1,5 @@
-import { siteConfig } from '@/config/site';
+import { siteConfig } from '@/nodehive/space.config';
+
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 

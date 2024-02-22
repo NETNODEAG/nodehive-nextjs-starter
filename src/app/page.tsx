@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
+import { createServerClient } from '@/nodehive/client';
 
-import { createServerClient } from '@/lib/nodehive';
 import Node from '@/components/node/Node';
 import AuthWrapper from '@/components/nodehive/auth/AuthWrapper';
 import SmartActionsButton from '@/components/nodehive/SmartActionsButton';

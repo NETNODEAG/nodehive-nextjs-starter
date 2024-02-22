@@ -1,6 +1,5 @@
 import Link from 'next/link';
-
-import { createServerClient } from '@/lib/nodehive';
+import { createServerClient } from '@/nodehive/client';
 
 interface Props {
   menuId: string;
