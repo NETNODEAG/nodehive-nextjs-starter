@@ -3,7 +3,7 @@
   Base styles
   */
   body {
-    @apply font-sans text-base antialiased;
+    @apply font-sans text-base antialiased text-black;
   }
 
   /*

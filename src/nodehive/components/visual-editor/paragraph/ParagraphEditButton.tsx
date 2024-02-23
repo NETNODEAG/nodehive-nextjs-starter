@@ -76,7 +76,7 @@ export default function VisualParagraphEditButton({
   return (
     <button
       onClick={editComponent}
-      className="absolute right-2 top-2 rounded-lg bg-neutral-900 p-2 text-xs font-bold text-white transition-colors hover:bg-neutral-700"
+      className="absolute right-2 top-2 rounded-lg bg-primary-600 p-2 text-xs font-bold text-white transition-colors hover:bg-primary-700"
     >
       {label}
     </button>

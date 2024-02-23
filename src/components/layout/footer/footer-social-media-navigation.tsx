@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { createServerClient } from '@/nodehive/client';
+import VisualEditorMenuWrapper from '@/nodehive/components/visual-editor/menu/VisualEditorMenuWrapper';
 
 import { InstagramIcon, TwitterIcon, YoutubeIcon } from '@/lib/icons';
 
@@ -23,26 +24,28 @@ export default async function SocialMediaNavigation({ menuId }: Props) {
   }
 
   return (
-    <nav>
-      <ul className="flex gap-4">
-        {navigation?.data?.map((item) => {
-          const socialClass = item?.options?.attributes?.class[0];
-          const icon = socialMediaIcons[socialClass];
+    <VisualEditorMenuWrapper menuId={menuId} negative={true}>
+      <nav>
+        <ul className="flex gap-4">
+          {navigation?.data?.map((item) => {
+            const socialClass = item?.options?.attributes?.class[0];
+            const icon = socialMediaIcons[socialClass];
 
-          return (
-            <li key={item.id}>
-              <Link
-                href={item.url}
-                target="_blank"
-                className="block text-2xl text-white"
-              >
-                <span className="sr-only">{item.title}</span>
-                {icon}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+            return (
+              <li key={item.id}>
+                <Link
+                  href={item.url}
+                  target="_blank"
+                  className="block text-2xl text-white"
+                >
+                  <span className="sr-only">{item.title}</span>
+                  {icon}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </VisualEditorMenuWrapper>
   );
 }
