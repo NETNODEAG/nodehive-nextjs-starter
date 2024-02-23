@@ -1,10 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { DrupalFragment } from '@/nodehive/types';
 
 import { Logo } from '@/lib/icons';
 import { absoluteUrl } from '@/lib/utils';
 
-export default async function FragmentSpaceLogo({ fragment }) {
+interface FragmentSpaceLogoProps {
+  fragment: DrupalFragment;
+}
+
+export default async function FragmentSpaceLogo({
+  fragment,
+}: FragmentSpaceLogoProps) {
   const logo = fragment?.field_logo;
 
   return (

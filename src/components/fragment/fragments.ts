@@ -1,6 +1,6 @@
-import FragmentCallToAction from './cta/FragmentCallToAction';
-import FragmentSpaceLogo from './space-logo/FragmentSpaceLogo';
-import FragmentText from './text/FragmentText';
+import FragmentCallToAction from './cta/fragment-call-to-action';
+import FragmentSpaceLogo from './space-logo/fragment-space-logo';
+import FragmentText from './text/fragment-text';
 
 export function isFragmentType(key: string) {
   return key in fragmentTypes;

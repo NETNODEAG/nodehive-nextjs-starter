@@ -234,3 +234,19 @@ export interface DrupalView<T = Record<string, any>[]> {
   meta: JsonApiResponse['meta'];
   links: JsonApiResponse['links'];
 }
+export interface DrupalFragment extends JsonApiResourceWithPath {
+  drupal_internal__nid: number;
+  drupal_internal__vid: number;
+  changed: string;
+  created: string;
+  title: string;
+  default_langcode: boolean;
+}
+export interface DrupalArea extends JsonApiResourceWithPath {
+  drupal_internal__nid: number;
+  drupal_internal__vid: number;
+  changed: string;
+  created: string;
+  label: string;
+  default_langcode: boolean;
+}

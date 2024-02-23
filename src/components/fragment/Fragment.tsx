@@ -1,8 +1,13 @@
 import VisualEditorFragmentWrapper from '@/nodehive/components/visual-editor/fragment/fragment-wrapper';
+import { DrupalFragment } from '@/nodehive/types';
 
 import { fragmentTypes, isFragmentType } from './fragments';
 
-export default function Fragment({ fragment }) {
+interface FragmentProps {
+  fragment: DrupalFragment;
+}
+
+export default function Fragment({ fragment }: FragmentProps) {
   const fragmentType = fragment?.type;
 
   if (isFragmentType(fragmentType)) {

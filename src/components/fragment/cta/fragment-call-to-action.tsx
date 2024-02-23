@@ -1,8 +1,15 @@
 import Link from 'next/link';
+import { DrupalFragment } from '@/nodehive/types';
 
 import { internalLinkUriToSlug } from '@/lib/utils';
 
-export default function FragmentCallToAction({ fragment }) {
+interface FragmentCallToActionProps {
+  fragment: DrupalFragment;
+}
+
+export default function FragmentCallToAction({
+  fragment,
+}: FragmentCallToActionProps) {
   const cta = fragment?.field_cta_link;
   const ctaUrl = internalLinkUriToSlug(cta?.uri);
   const ctaLabel = cta?.title;

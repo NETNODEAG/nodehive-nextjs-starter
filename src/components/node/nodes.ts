@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-import NodePage, { NodePageProps } from './page/NodePage';
+import NodePage, { NodePageProps } from './page/node-page';
 
 interface NodePropMap {
   'node--page': NodePageProps;
