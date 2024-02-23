@@ -15,7 +15,7 @@ export default async function Footer() {
         </div>
       </div>
 
-      <div className="bg-white">
+      <div className="bg-[#DCEBE9]">
         <div className="container mx-auto space-y-12 px-4 py-4 md:px-8">
           <FooterArea />
         </div>
