@@ -1,5 +1,5 @@
 import NodeWrapper from '@/nodehive/components/visual-editor/node/node-wrapper';
-import { DrupalNode } from 'next-drupal';
+import { DrupalNode } from '@/nodehive/types';
 
 import { isNodeType, nodeTypes } from './nodes';
 

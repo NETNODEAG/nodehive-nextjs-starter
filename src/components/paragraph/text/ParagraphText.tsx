@@ -1,4 +1,4 @@
-import { DrupalParagraph } from 'next-drupal';
+import { DrupalParagraph } from '@/nodehive/types';
 
 import { FormattedText } from '@/components/layout/FormattedText';
 
