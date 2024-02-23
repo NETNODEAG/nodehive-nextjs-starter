@@ -1,4 +1,4 @@
-import { spaceConfig } from '@/nodehive/space.config';
+import { spaceConfig } from '@/nodehive/space-config';
 
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';

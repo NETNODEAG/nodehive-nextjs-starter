@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { createServerClient } from '@/nodehive/client';
 import SmartActionsButton from '@/nodehive/components/smart-actions/smart-actions-button';
-import { spaceConfig } from '@/nodehive/space.config';
+import { spaceConfig } from '@/nodehive/space-config';
 
 import { absoluteUrl } from '@/lib/utils';
 import Node from '@/components/node/Node';
