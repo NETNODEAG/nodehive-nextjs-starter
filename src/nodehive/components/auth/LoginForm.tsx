@@ -1,8 +1,19 @@
+'use client';
+
 import { login } from '@/actions/_auth';
+import { getUser, saveUserDetails } from '@/actions/_user';
 
 export default function LoginForm() {
   return (
-    <form action={login} className="mx-auto max-w-2xl space-y-8">
+    <form
+      action={async (formData: FormData) => {
+        await login(formData);
+        const { user } = await getUser();
+
+        await saveUserDetails(user);
+      }}
+      className="mx-auto max-w-2xl space-y-8"
+    >
       <div className="flex flex-col">
         <label htmlFor="email" className="text-sm font-bold">
           Email

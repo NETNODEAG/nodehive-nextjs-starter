@@ -58,6 +58,9 @@ export async function logout() {
   const cookieStore = cookies();
 
   const userToken = cookieStore.get('userToken')?.value;
+  const user = cookieStore.get('user')?.value;
+
+  if (user) cookieStore.delete('user');
 
   if (userToken) {
     cookieStore.delete('userToken');

@@ -1,5 +1,6 @@
 import LogoutForm from '@/nodehive/components/auth/LogoutForm';
 import SmartActionsRefreshPage from '@/nodehive/components/smart-actions/SmartActionsRefreshPage';
+import SmartActionsUserProfile from '@/nodehive/components/smart-actions/SmartActionsUserProfile';
 import SmartActionsVisualEditor from '@/nodehive/components/smart-actions/SmartActionsVisualEditor';
 
 export default function SmartActionsButton() {
@@ -8,7 +9,7 @@ export default function SmartActionsButton() {
       <div className="rounded-full bg-neutral-900 p-2 text-sm font-bold text-white shadow-[0_8px_40px_rgba(0,0,0,0.25)] shadow-white/20 backdrop-blur-2xl ">
         <ul className="flex items-center gap-2">
           <li>
-            <span className="text-xs uppercase">NodeHive</span>
+            <SmartActionsUserProfile />
           </li>
           <li>
             <SmartActionsVisualEditor />
