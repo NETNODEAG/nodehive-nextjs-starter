@@ -1,6 +1,6 @@
 import { DrupalParagraph } from '@/nodehive/types';
 
-import { FormattedText } from '@/components/layout/FormattedText';
+import { FormattedText } from '@/components/layout/formatted-text';
 
 export interface ParagraphTextProps {
   paragraph: DrupalParagraph;

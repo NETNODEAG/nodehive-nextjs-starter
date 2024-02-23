@@ -1,6 +1,6 @@
 import { Logo } from '@/lib/icons';
-import FooterArea from './footer/footer-area';
-import SocialMediaNavigation from './footer/footer-social-media-navigation';
+import FooterArea from './footer-area';
+import SocialMediaNavigation from './footer-social-media-navigation';
 
 export default async function Footer() {
   return (

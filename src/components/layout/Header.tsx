@@ -1,6 +1,6 @@
-import HeaderCallToAction from './header/header-call-to-action';
-import HeaderLogo from './header/header-logo';
-import HeaderNavigation from './header/header-navigation';
+import HeaderCallToAction from './header-call-to-action';
+import HeaderLogo from './header-logo';
+import HeaderNavigation from './header-navigation';
 
 export default async function Header() {
   return (
