@@ -11,7 +11,7 @@ export default function MenuWrapper({
       data-nodehive-type="menu"
       className={cn(
         'relative overflow-hidden rounded-lg p-2 ring-2 md:p-2',
-        negative ? 'ring-white/90' : 'ring-black/10'
+        negative ? 'ring-white/90' : 'ring-primary-600/10'
       )}
     >
       <p
