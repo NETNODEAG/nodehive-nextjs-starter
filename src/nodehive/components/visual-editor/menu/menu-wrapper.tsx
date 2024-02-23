@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 
-export default function VisualEditorMenuWrapper({
+export default function MenuWrapper({
   type = 'menu',
   menuId,
   children,

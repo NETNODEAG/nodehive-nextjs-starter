@@ -30,7 +30,7 @@ export default function NodeEditButton({ node }) {
           'ring-yellow-[#f9e3a3] bg-[#fdf7e4] text-[#3d3a1d]',
         moderationState === 'archived' &&
           'ring-red-[#e2b6b3] bg-[#f7e2e0] text-[#3d1d1d]',
-        'space-y-8 rounded-lg p-3'
+        'space-y-8 rounded-lg p-3 text-xs'
       )}
     >
       <ul>
@@ -61,7 +61,7 @@ export default function NodeEditButton({ node }) {
         </li>
       </ul>
 
-      <button onClick={editNode} className="link">
+      <button onClick={editNode} className="link text-xs">
         Edit {"'"}
         {title}
         {"'"}

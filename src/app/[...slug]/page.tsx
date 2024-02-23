@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { createServerClient } from '@/nodehive/client';
-import AuthWrapper from '@/nodehive/components/auth/AuthWrapper';
-import SmartActionsButton from '@/nodehive/components/smart-actions/SmartActionsButton';
+import SmartActionsButton from '@/nodehive/components/smart-actions/smart-actions-button';
 import { spaceConfig } from '@/nodehive/space.config';
 
 import { absoluteUrl } from '@/lib/utils';
@@ -86,9 +85,7 @@ export default async function Page({ params }: PageProps) {
     <>
       <Node node={entity} />
 
-      <AuthWrapper>
-        <SmartActionsButton />
-      </AuthWrapper>
+      <SmartActionsButton />
 
       {
         <details className="container mx-auto mb-10 mt-10 rounded-md bg-black p-8 px-4 text-xs text-slate-50">

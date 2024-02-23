@@ -3,7 +3,7 @@ import { readUserDetails } from '@/actions/_user';
 
 import { cn } from '@/lib/utils';
 
-export default async function SmartActionsUserProfile() {
+export default async function UserProfile() {
   const user = await readUserDetails();
 
   return (

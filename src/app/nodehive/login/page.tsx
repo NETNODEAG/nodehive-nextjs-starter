@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import LoginForm from '@/nodehive/components/auth/LoginForm';
+import LoginForm from '@/nodehive/components/auth/login-form';
 
 export default function Page() {
   const cookieStore = cookies();

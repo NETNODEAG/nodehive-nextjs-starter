@@ -1,6 +1,6 @@
-import VisualEditButton from './ParagraphEditButton';
+import ParagraphEditButton from './paragraph-edit-button';
 
-export default function VisualEditorParagraphWrapper({
+export default function ParagraphWrapper({
   entity,
   enable = true,
   editmode = 'sidebar',
@@ -32,7 +32,7 @@ export default function VisualEditorParagraphWrapper({
         {type}
       </p>
 
-      <VisualEditButton
+      <ParagraphEditButton
         label="Edit Paragraph"
         type="paragraph"
         uuid={id}

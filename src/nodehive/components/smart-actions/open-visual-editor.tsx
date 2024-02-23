@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 
-export default function SmartActionsVisualEditor() {
+export default function OpenVisualEditor() {
   const pathname = usePathname();
 
   const openBackend = () => {

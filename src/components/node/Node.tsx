@@ -1,3 +1,4 @@
+import NodeWrapper from '@/nodehive/components/visual-editor/node/node-wrapper';
 import { DrupalNode } from 'next-drupal';
 
 import { isNodeType, nodeTypes } from './nodes';
@@ -11,7 +12,11 @@ export default function Node({ node }: NodeProps) {
 
   if (isNodeType(nodeType)) {
     const NodeInstance = nodeTypes[nodeType];
-    return <NodeInstance node={node} />;
+    return (
+      <NodeWrapper entity={node?.data}>
+        <NodeInstance node={node} />
+      </NodeWrapper>
+    );
   }
 
   return null;

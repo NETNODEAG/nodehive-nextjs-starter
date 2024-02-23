@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { createServerClient } from '@/nodehive/client';
-import VisualEditorMenuWrapper from '@/nodehive/components/visual-editor/menu/VisualEditorMenuWrapper';
+import MenuWrapper from '@/nodehive/components/visual-editor/menu/menu-wrapper';
 
 import { InstagramIcon, TwitterIcon, YoutubeIcon } from '@/lib/icons';
 
@@ -24,7 +24,7 @@ export default async function SocialMediaNavigation({ menuId }: Props) {
   }
 
   return (
-    <VisualEditorMenuWrapper menuId={menuId} negative={true}>
+    <MenuWrapper menuId={menuId} negative={true}>
       <nav>
         <ul className="flex gap-4">
           {navigation?.data?.map((item) => {
@@ -46,6 +46,6 @@ export default async function SocialMediaNavigation({ menuId }: Props) {
           })}
         </ul>
       </nav>
-    </VisualEditorMenuWrapper>
+    </MenuWrapper>
   );
 }

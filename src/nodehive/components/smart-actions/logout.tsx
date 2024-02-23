@@ -5,7 +5,7 @@ import { useFormStatus } from 'react-dom';
 
 import { cn } from '@/lib/utils';
 
-export default function LogoutForm() {
+export default function Logout() {
   return (
     <form action={logout}>
       <LogoutButton />

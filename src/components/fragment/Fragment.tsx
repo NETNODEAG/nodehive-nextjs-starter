@@ -1,4 +1,4 @@
-import VisualEditorFragmentWrapper from '@/nodehive/components/visual-editor/fragment/VisualEditorFragmentWrapper';
+import VisualEditorFragmentWrapper from '@/nodehive/components/visual-editor/fragment/fragment-wrapper';
 
 import { fragmentTypes, isFragmentType } from './fragments';
 

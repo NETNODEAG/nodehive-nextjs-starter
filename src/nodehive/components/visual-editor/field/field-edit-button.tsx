@@ -3,13 +3,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-export default function VisualFieldEditButton({
-  label,
-  type,
-  field,
-  nodeId,
-  lang,
-}) {
+export default function FieldEditButton({ label, type, field, nodeId, lang }) {
   const pathname = usePathname();
   const [isInIframe, setIsInIframe] = useState(false);
 

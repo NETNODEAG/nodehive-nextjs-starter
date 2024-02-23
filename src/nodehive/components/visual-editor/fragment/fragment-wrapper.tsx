@@ -1,6 +1,6 @@
-import FragmentEditButton from './FragmentEditButton';
+import FragmentEditButton from './fragment-edit-button';
 
-export default function VisualEditorFragmentWrapper({
+export default function FragmentWrapper({
   entity,
   enable = true,
   editmode = 'sidebar',

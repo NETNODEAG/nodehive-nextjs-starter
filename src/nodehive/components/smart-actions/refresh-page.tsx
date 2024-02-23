@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 
-export default function SmartActionsRefreshPage() {
+export default function RefreshPage() {
   const pathname = usePathname();
   const [refreshSuccess, setRefreshSuccess] = useState(false);
 

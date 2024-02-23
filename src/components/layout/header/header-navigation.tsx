@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { createServerClient } from '@/nodehive/client';
-import VisualEditorMenuWrapper from '@/nodehive/components/visual-editor/menu/VisualEditorMenuWrapper';
+import MenuWrapper from '@/nodehive/components/visual-editor/menu/menu-wrapper';
 
 interface Props {
   menuId: string;
@@ -16,7 +16,7 @@ export default async function HeaderNavigation({ menuId }: Props) {
   }
 
   return (
-    <VisualEditorMenuWrapper menuId={menuId}>
+    <MenuWrapper menuId={menuId}>
       <nav className="hidden md:block">
         <ul className="flex gap-8">
           {navigation?.data?.map((item) => (
@@ -28,6 +28,6 @@ export default async function HeaderNavigation({ menuId }: Props) {
           ))}
         </ul>
       </nav>
-    </VisualEditorMenuWrapper>
+    </MenuWrapper>
   );
 }
