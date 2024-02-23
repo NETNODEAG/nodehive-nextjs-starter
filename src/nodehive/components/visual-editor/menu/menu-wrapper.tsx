@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import MenuEditButton from './menu-edit-button';
 
 export default function MenuWrapper({
   type = 'menu',
@@ -22,6 +23,8 @@ export default function MenuWrapper({
       >
         {type}--{menuId}
       </p>
+
+      <MenuEditButton type={type} menuId={menuId} label="Edit menu" />
 
       {children}
     </div>
