@@ -62,3 +62,27 @@ export function internalLinkUriToSlug(uri: string) {
   // Return uri if it doesn't contain 'entity:node/'
   return uri;
 }
+
+/**
+ * This function is used to format a date in a short format
+ * It will use the locale de-CH
+ * Example: 01.01.2021
+ *
+ * @param input - The date to format
+ *
+ * @returns The formatted date
+ */
+export function formatDate(input: string): string {
+  const date = new Date(input);
+
+  const formattedDate = date.toLocaleDateString('de-CH', {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    timeZone: 'Europe/Zurich',
+  });
+
+  return formattedDate;
+}

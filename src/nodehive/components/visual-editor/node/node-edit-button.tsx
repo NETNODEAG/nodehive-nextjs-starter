@@ -2,7 +2,8 @@
 
 import { usePathname } from 'next/navigation';
 
-import { cn } from '@/lib/utils';
+import { EditIcon } from '@/lib/icons';
+import { cn, formatDate } from '@/lib/utils';
 
 export default function NodeEditButton({ node }) {
   const pathname = usePathname();
@@ -27,10 +28,10 @@ export default function NodeEditButton({ node }) {
         moderationState === 'published' && 'bg-primary-600/10 text-primary-900',
         moderationState === 'draft' && 'bg-[#fdf7e4] text-[#3d3a1d]',
         moderationState === 'archived' && 'bg-[#f7e2e0] text-[#3d1d1d]',
-        'space-y-8 rounded-lg p-3 text-xs'
+        'flex items-center justify-between gap-4 rounded-lg p-3 text-xs'
       )}
     >
-      <ul>
+      <ul className="flex flex-col lg:flex-row lg:gap-2">
         <li>
           <span>
             <strong>Id:</strong> {internalId}
@@ -38,12 +39,12 @@ export default function NodeEditButton({ node }) {
         </li>
         <li>
           <span>
-            <strong>Created:</strong> {created}
+            <strong>Created:</strong> {formatDate(created)}
           </span>
         </li>
         <li>
           <span>
-            <strong>Changed:</strong> {changed}
+            <strong>Changed:</strong> {formatDate(changed)}
           </span>
         </li>
         <li>
@@ -58,7 +59,11 @@ export default function NodeEditButton({ node }) {
         </li>
       </ul>
 
-      <button onClick={editNode} className="link text-xs">
+      <button
+        onClick={editNode}
+        className="flex gap-2 rounded-lg bg-primary-600 p-2 text-xs font-bold text-white transition-colors hover:bg-primary-700"
+      >
+        <EditIcon />
         Edit {"'"}
         {title}
         {"'"}
