@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
+import { EditIcon } from '@/lib/icons';
+
 export default function VisualParagraphEditButton({
   label,
   type,
@@ -76,8 +78,9 @@ export default function VisualParagraphEditButton({
   return (
     <button
       onClick={editComponent}
-      className="absolute right-2 top-2 rounded-lg bg-primary-600 p-2 text-xs font-bold text-white transition-colors hover:bg-primary-700"
+      className="absolute right-2 top-2 flex gap-2 rounded-lg bg-primary-600 p-2 text-xs font-bold text-white transition-colors hover:bg-primary-700"
     >
+      <EditIcon />
       {label}
     </button>
   );
