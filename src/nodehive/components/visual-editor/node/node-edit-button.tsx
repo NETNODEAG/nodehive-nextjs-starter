@@ -24,12 +24,9 @@ export default function NodeEditButton({ node }) {
   return (
     <div
       className={cn(
-        moderationState === 'published' &&
-          'ring-green-[#a3cfbb] bg-[#d1e7dd] text-[#0a3622]',
-        moderationState === 'draft' &&
-          'ring-yellow-[#f9e3a3] bg-[#fdf7e4] text-[#3d3a1d]',
-        moderationState === 'archived' &&
-          'ring-red-[#e2b6b3] bg-[#f7e2e0] text-[#3d1d1d]',
+        moderationState === 'published' && 'bg-primary-600/10 text-primary-900',
+        moderationState === 'draft' && 'bg-[#fdf7e4] text-[#3d3a1d]',
+        moderationState === 'archived' && 'bg-[#f7e2e0] text-[#3d1d1d]',
         'space-y-8 rounded-lg p-3 text-xs'
       )}
     >
