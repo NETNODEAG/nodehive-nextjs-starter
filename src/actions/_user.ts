@@ -36,8 +36,8 @@ export async function saveUserDetails(user) {
   cookieStore.set({
     name: 'user',
     value: JSON.stringify(user),
-    httpOnly: true,
-    sameSite: 'strict',
+    httpOnly: false,
+    sameSite: 'none',
     secure: true,
     path: '/',
   });

@@ -31,8 +31,8 @@ export async function login(formData: FormData) {
       cookieStore.set({
         name: 'userToken',
         value: token,
-        httpOnly: true,
-        sameSite: 'strict',
+        httpOnly: false,
+        sameSite: 'none',
         secure: true,
         path: '/',
       });
