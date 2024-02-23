@@ -11,7 +11,9 @@ export default function ParagraphText({ paragraph }: ParagraphTextProps) {
 
   return (
     <section data-paragraph-type="Text">
-      {text && <FormattedText html={text?.processed} className="prose" />}
+      {text && (
+        <FormattedText html={text?.processed} className="prose max-w-prose" />
+      )}
     </section>
   );
 }
