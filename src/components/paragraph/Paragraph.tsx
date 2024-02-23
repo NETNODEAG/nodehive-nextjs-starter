@@ -1,6 +1,6 @@
+import VisualEditorParagraphWrapper from '@/nodehive/components/visual-editor/paragraph/VisualEditorParagraphWrapper';
 import { DrupalParagraph } from 'next-drupal';
 
-import VisualEditorParagraphWrapper from '@/components/nodehive/visualeditor/VisualEditorParagraphWrapper';
 import { isParagraphType, paragraphTypes } from './paragraphs';
 
 interface ParagraphProps {

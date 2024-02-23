@@ -1,4 +1,4 @@
-import VisualEditButton from './VisualComponentEditButton';
+import VisualEditButton from './ParagraphEditButton';
 
 export default function VisualEditorParagraphWrapper({
   entity,

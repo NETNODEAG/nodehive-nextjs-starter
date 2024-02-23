@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { createServerClient } from '@/nodehive/client';
+import AuthWrapper from '@/nodehive/components/auth/AuthWrapper';
+import SmartActionsButton from '@/nodehive/components/smart-actions/SmartActionsButton';
 import { spaceConfig } from '@/nodehive/space.config';
 
 import { absoluteUrl } from '@/lib/utils';
 import Node from '@/components/node/Node';
-import AuthWrapper from '@/components/nodehive/auth/AuthWrapper';
-import SmartActionsButton from '@/components/nodehive/SmartActionsButton';
 
 interface PageProps {
   params: { slug: Array<string> };

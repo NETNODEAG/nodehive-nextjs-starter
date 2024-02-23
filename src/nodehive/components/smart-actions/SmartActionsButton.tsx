@@ -1,6 +1,6 @@
-import LogoutForm from './auth/LogoutForm';
-import SmartActionsRefreshPage from './smart-actions/SmartActionsRefreshPage';
-import SmartActionsVisualEditor from './smart-actions/SmartActionsVisualEditor';
+import LogoutForm from '@/nodehive/components/auth/LogoutForm';
+import SmartActionsRefreshPage from '@/nodehive/components/smart-actions/SmartActionsRefreshPage';
+import SmartActionsVisualEditor from '@/nodehive/components/smart-actions/SmartActionsVisualEditor';
 
 export default function SmartActionsButton() {
   return (

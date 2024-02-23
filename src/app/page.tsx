@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 import { createServerClient } from '@/nodehive/client';
+import AuthWrapper from '@/nodehive/components/auth/AuthWrapper';
+import SmartActionsButton from '@/nodehive/components/smart-actions/SmartActionsButton';
 
 import Node from '@/components/node/Node';
-import AuthWrapper from '@/components/nodehive/auth/AuthWrapper';
-import SmartActionsButton from '@/components/nodehive/SmartActionsButton';
 
 export default async function RootPage() {
   const client = createServerClient();

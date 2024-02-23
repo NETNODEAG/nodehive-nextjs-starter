@@ -1,7 +1,7 @@
+import AuthWrapper from '@/nodehive/components/auth/AuthWrapper';
+import NodeEditButton from '@/nodehive/components/visual-editor/node/NodeEditButton';
 import { DrupalNode, DrupalParagraph } from 'next-drupal';
 
-import AuthWrapper from '@/components/nodehive/auth/AuthWrapper';
-import EditButton from '@/components/nodehive/visualeditor/NodeEditButton';
 import Paragraph from '@/components/paragraph/Paragraph';
 
 export interface NodePageProps {
@@ -16,7 +16,7 @@ export default function NodePage({ node }: NodePageProps) {
   return (
     <article data-node-type="Page" className="space-y-8">
       <AuthWrapper>
-        <EditButton node={node} />
+        <NodeEditButton node={node} />
       </AuthWrapper>
 
       <h1 className="text-4xl font-bold sm:text-6xl">{title}</h1>

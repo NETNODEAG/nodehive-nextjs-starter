@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-export default function VisualComponentEditButton({
+export default function VisualParagraphEditButton({
   label,
   type,
   uuid,
