@@ -34,54 +34,29 @@ export default function VisualParagraphEditButton({
   useEffect(() => {
     const inIframe = window.self !== window.top;
     setIsInIframe(inIframe);
-
-    const handleMessage = (event) => {
-      if (event.data === 'reloadFrame') {
-        refreshPage();
-      }
-    };
-
-    window.addEventListener('message', handleMessage);
-
-    return () => {
-      window.removeEventListener('message', handleMessage);
-    };
   }, []);
 
   if (!isInIframe) {
     return null;
   }
 
-  async function refreshPage() {
-    let success = false;
-    let error = null;
-
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}/api/nodehive/revalidate?path=${pathname}`
-      );
-
-      if (!response.ok) {
-        error = 'Error revalidating the page';
-      } else {
-        success = true;
-        location.reload();
-      }
-    } catch (error) {
-      console.error(error);
-      error = error?.message;
-    }
-
-    return { success, error };
-  }
-
   return (
-    <button
-      onClick={editComponent}
-      className="absolute right-2 top-2 flex gap-2 rounded-lg bg-primary-600 p-2 text-xs font-bold text-white transition-colors hover:bg-primary-700"
-    >
-      <EditIcon />
-      {label}
-    </button>
+    <>
+      <div className="absolute right-1 top-0 flex transform-gpu gap-2 antialiased opacity-75 transition-all duration-75 ease-in-out hover:scale-125 hover:opacity-100">
+        {/** 
+        <p className="mb-2 max-w-2xl text-xs leading-6 text-neutral-500">
+          {type}
+        </p>
+        */}
+        <button
+          onClick={editComponent}
+          className="rounded-lg bg-primary-600 p-1 text-xs font-bold text-white transition-colors hover:bg-primary-700"
+        >
+          <span className="sr-only">{label}df</span>
+
+          <EditIcon />
+        </button>
+      </div>
+    </>
   );
 }

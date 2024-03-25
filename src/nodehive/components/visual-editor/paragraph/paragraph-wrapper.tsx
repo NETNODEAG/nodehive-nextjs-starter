@@ -26,12 +26,8 @@ export default function ParagraphWrapper({
       data-nodehive-parent_id={parent_id}
       data-nodehive-id={drupal_internal__target_id}
       data-nodehive-uuid={id}
-      className="relative overflow-hidden rounded-lg p-2 ring-2 ring-primary-600/10 md:p-6"
+      className="relative rounded-lg border border-black p-10"
     >
-      <p className="mb-2 max-w-2xl text-xs leading-6 text-neutral-500">
-        {type}
-      </p>
-
       <ParagraphEditButton
         label="Edit Paragraph"
         type="paragraph"

@@ -8,7 +8,7 @@ export default function FragmentWrapper({
 }) {
   const { meta, type, id, drupal_internal__fid } = entity;
 
-  console.log('FragmentWrapper', entity);
+  //console.log('FragmentWrapper', entity);
 
   if (!type) {
     return <div>no visual editor {children}</div>;
@@ -23,19 +23,14 @@ export default function FragmentWrapper({
       data-nodehive-type="fragment"
       data-nodehive-id={drupal_internal__fid}
       data-nodehive-uuid={id}
-      className="relative overflow-hidden rounded-lg p-2 ring-2 ring-primary-600/10 md:p-2"
+      className="relative block"
     >
-      <p className="mb-2 max-w-2xl text-xs leading-6 text-neutral-500">
-        {type}
-      </p>
-
       <FragmentEditButton
         label="Edit Fragment"
         type="fragment"
         uuid={id}
         id={drupal_internal__fid}
       />
-
       {children}
     </div>
   );

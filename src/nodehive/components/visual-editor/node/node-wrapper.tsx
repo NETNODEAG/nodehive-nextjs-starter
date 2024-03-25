@@ -10,12 +10,8 @@ export default function NodeWrapper({ entity, children }) {
       data-nodehive-type="node"
       data-nodehive-id={drupal_internal__nid}
       data-nodehive-uuid={id}
-      className="relative overflow-hidden rounded-lg p-2 ring-2 ring-primary-600/10 md:p-6"
+      className="relative"
     >
-      <p className="mb-2 max-w-2xl text-xs leading-6 text-neutral-500">
-        {type}
-      </p>
-
       {children}
     </div>
   );

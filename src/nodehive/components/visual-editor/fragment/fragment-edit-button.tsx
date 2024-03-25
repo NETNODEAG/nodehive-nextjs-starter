@@ -27,18 +27,6 @@ export default function FragmentEditButton({ label, type, uuid, id }) {
   useEffect(() => {
     const inIframe = window.self !== window.top;
     setIsInIframe(inIframe);
-
-    const handleMessage = (event) => {
-      if (event.data === 'reloadFrame') {
-        refreshPage();
-      }
-    };
-
-    window.addEventListener('message', handleMessage);
-
-    return () => {
-      window.removeEventListener('message', handleMessage);
-    };
   }, []);
 
   if (!isInIframe) {
@@ -69,13 +57,22 @@ export default function FragmentEditButton({ label, type, uuid, id }) {
   }
 
   return (
-    <button
-      onClick={editComponent}
-      className="absolute right-1 top-1 z-50 rounded-lg bg-primary-600 p-1 text-xs font-bold text-white transition-colors hover:bg-primary-700"
-    >
-      <span className="sr-only">{label}</span>
+    <>
+      <div className="absolute right-1 top-0 flex transform-gpu gap-2 antialiased opacity-75 transition-all duration-75 ease-in-out hover:scale-125 hover:opacity-100">
+        {/** 
+        <p className="mb-2 max-w-2xl text-xs leading-6 text-neutral-500">
+          {type}
+        </p>
+        */}
+        <button
+          onClick={editComponent}
+          className="rounded-lg bg-primary-600 p-1 text-xs font-bold text-white transition-colors hover:bg-primary-700"
+        >
+          <span className="sr-only">{label}</span>
 
-      <EditIcon />
-    </button>
+          <EditIcon />
+        </button>
+      </div>
+    </>
   );
 }

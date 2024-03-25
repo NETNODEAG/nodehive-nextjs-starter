@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { EditIcon } from '@/lib/icons';
@@ -16,58 +17,83 @@ export default function NodeEditButton({ node }) {
   const moderationState = nodeData?.moderation_state;
   const language = nodeData?.langcode;
 
-  const editNode = () => {
-    const editUrl = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/${internalId}/edit?destination=${pathname}`;
+  const [isInIframe, setIsInIframe] = useState(false);
 
-    window.open(editUrl, '_blank');
+  const editNode = (e) => {
+    if (!isInIframe) {
+      const editUrl = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/${internalId}/edit?destination=${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}${pathname}`;
+      window.open(editUrl, '_blank');
+    } else {
+      e.preventDefault();
+
+      // TODO: Add language information. To edit the content in the correct language.
+      // Backend implementation is not ready yet.
+      window.parent.postMessage(
+        {
+          type: 'node',
+          id: nodeData?.drupal_internal__nid,
+          lang: nodeData?.langcode,
+        },
+        '*'
+      );
+    }
   };
 
-  return (
-    <div
-      className={cn(
-        moderationState === 'published' && 'bg-primary-600/10 text-primary-900',
-        moderationState === 'draft' && 'bg-[#fdf7e4] text-[#3d3a1d]',
-        moderationState === 'archived' && 'bg-[#f7e2e0] text-[#3d1d1d]',
-        'flex items-center justify-between gap-4 rounded-lg p-3 text-xs'
-      )}
-    >
-      <ul className="flex flex-col lg:flex-row lg:gap-2">
-        <li>
-          <span>
-            <strong>Id:</strong> {internalId}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Created:</strong> {formatDate(created)}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Changed:</strong> {formatDate(changed)}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Moderation state:</strong> {moderationState}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Language:</strong> {language}
-          </span>
-        </li>
-      </ul>
+  useEffect(() => {
+    const inIframe = window.self !== window.top;
+    setIsInIframe(inIframe);
+  }, []);
 
-      <button
-        onClick={editNode}
-        className="flex gap-2 rounded-lg bg-primary-600 p-2 text-xs font-bold text-white transition-colors hover:bg-primary-700"
+  return (
+    <div className="w-full">
+      <div
+        className={cn(
+          moderationState === 'published' &&
+            'bg-primary-600/10 text-primary-900',
+          moderationState === 'draft' && 'bg-[#fdf7e4] text-[#3d3a1d]',
+          moderationState === 'archived' && 'bg-[#f7e2e0] text-[#3d1d1d]',
+          'flex items-center justify-between gap-4 rounded-lg bg-primary-600 p-3 text-xs'
+        )}
       >
-        <EditIcon />
-        Edit {"'"}
-        {title}
-        {"'"}
-      </button>
+        <div>
+          <h2 className="text-xl font-bold text-white">{title}</h2>
+          <ul className="flex flex-col text-white lg:flex-row  lg:gap-2 ">
+            <li>
+              <span>
+                <strong>Id:</strong> {internalId}
+              </span>
+            </li>
+            <li>
+              <span>
+                <strong>Created:</strong> {formatDate(created)}
+              </span>
+            </li>
+            <li>
+              <span>
+                <strong>Changed:</strong> {formatDate(changed)}
+              </span>
+            </li>
+            <li>
+              <span>
+                <strong>Moderation state:</strong> {moderationState}
+              </span>
+            </li>
+            <li>
+              <span>
+                <strong>Language:</strong> {language}
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <button
+          onClick={editNode}
+          className="flex gap-2 rounded-lg border-2 border-white p-2 text-xs font-bold text-white transition-colors hover:bg-teal-700"
+        >
+          <EditIcon />
+          Edit
+        </button>
+      </div>
     </div>
   );
 }

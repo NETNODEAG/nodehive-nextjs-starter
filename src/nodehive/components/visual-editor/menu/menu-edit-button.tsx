@@ -42,7 +42,7 @@ export default function MenuEditButton({
   return (
     <button
       onClick={editComponent}
-      className="absolute right-1 top-1 z-50 rounded-lg bg-primary-600 p-1 text-xs font-bold text-white transition-colors hover:bg-primary-700"
+      className="absolute -right-8 -top-1 z-50 rounded-lg bg-primary-600 p-1 text-xs font-bold text-white transition-colors hover:bg-primary-700"
     >
       <span className="sr-only">{label}</span>
 

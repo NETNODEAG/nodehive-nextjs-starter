@@ -13,12 +13,12 @@ export default function OpenVisualEditor() {
     const frontendUrl = `${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}${pathname}`;
     const url = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/space/${process.env.NEXT_PUBLIC_DRUPAL_NODEHIVE_SPACE_ID}/visualeditor?url=${frontendUrl}`;
 
-    window.open(url, '_blank');
+    window.open(url, '_parent');
   };
 
   const openFrontend = () => {
     const frontendUrl = `${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}${pathname}`;
-    window.open(frontendUrl, '_blank');
+    window.open(frontendUrl, '_parent');
   };
 
   useEffect(() => {
