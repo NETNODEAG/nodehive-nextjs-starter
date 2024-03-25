@@ -1,3 +1,4 @@
+import Connector from '@/nodehive/connector';
 import { spaceConfig } from '@/nodehive/space-config';
 
 import Footer from '@/components/layout/footer';
@@ -43,6 +44,7 @@ export default async function RootLayout({ children }: LayoutProps) {
 
           <Footer />
         </div>
+        <Connector />
       </body>
     </html>
   );
