@@ -32,7 +32,7 @@ export default function NodeEditButton({ node }) {
         {
           type: 'node',
           id: nodeData?.drupal_internal__nid,
-          lang: nodeData?.langcode,
+          langcode: nodeData?.langcode,
         },
         '*'
       );

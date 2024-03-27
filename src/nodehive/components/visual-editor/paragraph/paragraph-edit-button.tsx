@@ -11,6 +11,7 @@ export default function VisualParagraphEditButton({
   uuid,
   id,
   parentId,
+  langcode,
 }) {
   const pathname = usePathname();
   const [isInIframe, setIsInIframe] = useState(false);
@@ -26,6 +27,7 @@ export default function VisualParagraphEditButton({
         id: id,
         parent_id: parentId,
         pathname: pathname,
+        langcode: langcode,
       },
       '*'
     );
