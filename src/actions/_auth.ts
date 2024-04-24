@@ -16,8 +16,8 @@ export async function login(formData: FormData) {
 
   let error = null;
 
-  const email = formData.get('email');
-  const password = formData.get('password');
+  const email = formData.get('email') as string;
+  const password = formData.get('password') as string;
 
   try {
     const { data: token, error: tokenError } = await client.getJWTAccessToken(
