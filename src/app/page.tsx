@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { createServerClient } from '@/nodehive/client';
 import SmartActionsButton from '@/nodehive/components/smart-actions/smart-actions-button';
+import { DrupalNode } from '@/nodehive/types';
 
 import Node from '@/components/node/Node';
 
@@ -19,7 +20,8 @@ export default async function RootPage() {
 
   return (
     <>
-      <Node node={entity} />
+      {/* TODO: Fix the types correctly */}
+      <Node node={entity as unknown as DrupalNode} />
 
       <SmartActionsButton />
 
