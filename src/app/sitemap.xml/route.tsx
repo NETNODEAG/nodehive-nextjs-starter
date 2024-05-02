@@ -1,4 +1,4 @@
-function generateGlobalSitemap(url, language) {
+function generateGlobalSitemap(url) {
   const now = new Date();
   let date = now.toISOString();
   date = date.replace(/\.\d{3}Z/, '+00:00');
@@ -6,7 +6,7 @@ function generateGlobalSitemap(url, language) {
   return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-        <loc>${url}/${language}/sitemap/sitemap-pages.xml</loc>
+        <loc>${url}/sitemap/sitemap-pages.xml</loc>
         <lastmod>${date}</lastmod>
       </url>
     </urlset>
@@ -21,10 +21,9 @@ function generateGlobalSitemap(url, language) {
  */
 export async function GET(req) {
   const url = req.nextUrl.origin;
-  const language = req.nextUrl.pathname.split('/')[1];
 
   try {
-    const body = generateGlobalSitemap(url, language);
+    const body = generateGlobalSitemap(url);
 
     return new Response(body, {
       status: 200,

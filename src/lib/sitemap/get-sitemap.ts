@@ -1,10 +1,4 @@
-/**
- * The API URL
- * INFO: Create a rest endpoint for the sitemap in Drupal
- *
- * @type {string}
- */
-const API_URL = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/rest/sitemap`;
+import { createServerClient } from '@/nodehive/client';
 
 /**
  * Create the response
@@ -35,10 +29,15 @@ export function generateSitemap(url, data, priority = 0.5) {
     <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
       ${data
         .map((item) => {
+          const path = item.path?.alias || `/node/${item.drupal_internal__nid}`;
+          const changed = new Date(item.changed)
+            .toISOString()
+            .replace('Z', '+00:00');
+
           return `
             <url>
-              <loc>${url}${item.path}</loc>
-              <lastmod>${item.changed}</lastmod>
+              <loc>${url}${path}</loc>
+              <lastmod>${changed}</lastmod>
               <changefreq>daily</changefreq>
               <priority>${priority}</priority>
             </url>
@@ -50,35 +49,13 @@ export function generateSitemap(url, data, priority = 0.5) {
 }
 
 /**
- * Get the sitemap data
- *
- * @param {string} url The API URL
- * @param {number} revalidate The revalidate time
- *
- * @return {Promise} Promise object represents the sitemap data
- */
-async function fetchSitemapData(url, revalidate) {
-  try {
-    const response = await fetch(url, {
-      next: { revalidate: revalidate },
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    return response.json();
-  } catch (error) {
-    console.error(`There was a problem (fetchSitemapData): ${error.message}`);
-  }
-}
-
-/**
  * Get the sitemap data - Pages data
  *
  * @return {Promise} Promise object represents the sitemap data
  */
 export async function getSitemapPagesData() {
-  const url = `${API_URL}?type=page`;
-  return fetchSitemapData(url, 43200);
+  const client = createServerClient();
+  const pages = await client.getNodes('page');
+
+  return pages?.data;
 }
