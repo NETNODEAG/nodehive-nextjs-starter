@@ -8,3 +8,5 @@ export { default as YoutubeIcon } from 'public/icons/youtube.svg';
 
 // Other icons
 export { default as EditIcon } from 'public/icons/edit.svg';
+export { default as CloseIcon } from 'public/icons/close.svg';
+export { default as HamburguerIcon } from 'public/icons/menu.svg';

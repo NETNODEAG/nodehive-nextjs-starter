@@ -1,6 +1,8 @@
-import Link from 'next/link';
 import { createServerClient } from '@/nodehive/client';
 import MenuWrapper from '@/nodehive/components/visual-editor/menu/menu-wrapper';
+
+import FlyoutNavigation from './flyout-navigation';
+import Menu from './menu';
 
 interface Props {
   menuId: string;
@@ -9,7 +11,18 @@ interface Props {
 export default async function HeaderNavigation({ menuId }: Props) {
   const client = createServerClient();
 
-  const navigation = await client.getMenuItems(menuId);
+  const navigation = (await client.getMenuItems(menuId)) as any;
+
+  const mainNavigation = navigation?.data?.reduce((acc, item) => {
+    if (item.parent === '') {
+      // This is a parent menu item
+      acc[item.id] = { ...item, subMenu: [] };
+    } else if (acc[item.parent]) {
+      // This is a submenu item for an existing parent
+      acc[item.parent].subMenu.push(item);
+    }
+    return acc;
+  }, {});
 
   if (!navigation?.data?.length) {
     return null;
@@ -17,17 +30,8 @@ export default async function HeaderNavigation({ menuId }: Props) {
 
   return (
     <MenuWrapper menuId={menuId}>
-      <nav className="hidden md:block">
-        <ul className="flex gap-8">
-          {navigation?.data?.map((item) => (
-            <li key={item.id}>
-              <Link href={item.url} className="font-semibold">
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <Menu menu={mainNavigation} />
+      <FlyoutNavigation menu={mainNavigation} />
     </MenuWrapper>
   );
 }
