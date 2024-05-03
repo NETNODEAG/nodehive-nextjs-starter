@@ -6,8 +6,8 @@ export default function Page() {
   const cookieStore = cookies();
   const userToken = cookieStore.get('userToken')?.value;
 
-  if (userToken) {
-    redirect('/');
+  if (userToken !== '' && userToken !== undefined) {
+    redirect('/nodehive/account');
   }
 
   return (
