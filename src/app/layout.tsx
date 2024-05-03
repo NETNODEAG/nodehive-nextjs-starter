@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description: spaceMetadata?.description,
   icons: spaceMetadata?.icons,
   openGraph: spaceMetadata?.openGraph,
+  alternates: {
+    canonical: './',
+  },
 };
 
 interface LayoutProps {
