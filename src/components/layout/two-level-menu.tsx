@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ChevronDownIcon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
-export default function Menu({ menu }) {
+export default function TwoLevelMenu({ menu }) {
   const navRef = useRef<HTMLDivElement>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);

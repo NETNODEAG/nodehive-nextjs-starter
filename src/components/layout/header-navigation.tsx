@@ -2,7 +2,7 @@ import { createServerClient } from '@/nodehive/client';
 import MenuWrapper from '@/nodehive/components/visual-editor/menu/menu-wrapper';
 
 import FlyoutNavigation from './flyout-navigation';
-import Menu from './menu';
+import TwoLevelMenu from './two-level-menu';
 
 interface Props {
   menuId: string;
@@ -30,7 +30,7 @@ export default async function HeaderNavigation({ menuId }: Props) {
 
   return (
     <MenuWrapper menuId={menuId}>
-      <Menu menu={mainNavigation} />
+      <TwoLevelMenu menu={mainNavigation} />
       <FlyoutNavigation menu={mainNavigation} />
     </MenuWrapper>
   );
