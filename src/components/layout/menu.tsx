@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
+import { ChevronDownIcon } from '@/lib/icons';
+import { cn } from '@/lib/utils';
+
 export default function Menu({ menu }) {
   const navRef = useRef<HTMLDivElement>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -55,22 +58,15 @@ export default function Menu({ menu }) {
                 className="flex cursor-pointer items-center gap-1 font-semibold"
               >
                 {item.title}
-                <svg
-                  className={`h-5 w-5 transition-transform duration-300 ${
+
+                <ChevronDownIcon
+                  className={cn(
+                    'transition-transform duration-300',
                     isDropdownOpen && openDropdown === item.id
                       ? 'rotate-180'
                       : ''
-                  }`}
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                  )}
+                />
               </button>
             ) : (
               <Link

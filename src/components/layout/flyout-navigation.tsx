@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import { CloseIcon, HamburguerIcon } from '@/lib/icons';
+import { ChevronDownIcon, CloseIcon, HamburguerIcon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
 export default function FlyoutNavigation({ menu }) {
@@ -75,10 +75,17 @@ export default function FlyoutNavigation({ menu }) {
                   {item.subMenu.length > 0 ? (
                     <>
                       <button
-                        className="flex w-full text-left text-3xl font-medium"
+                        className="flex w-full items-center justify-between text-left text-3xl font-medium"
                         onClick={() => toggleSubMenu(item.id)}
                       >
                         {item?.title}
+
+                        <ChevronDownIcon
+                          className={cn(
+                            openSubMenu[item.id] ? 'rotate-180 transform' : '',
+                            'ml-2 inline-block h-6 w-6 transition-transform duration-200 ease-in-out'
+                          )}
+                        />
                       </button>
 
                       {openSubMenu[item.id] && (
