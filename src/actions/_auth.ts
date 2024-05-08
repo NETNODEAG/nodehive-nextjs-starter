@@ -2,7 +2,11 @@
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { createServerClient } from '@/nodehive/client';
+import {
+  cookieUser,
+  cookieUserToken,
+  createServerClient,
+} from '@/nodehive/client';
 
 import { getUser, saveUserDetails } from './_user';
 
@@ -10,10 +14,6 @@ import { getUser, saveUserDetails } from './_user';
  * The login state
  */
 export type LoginState = {
-  errors?: {
-    email?: string[];
-    password?: string[];
-  };
   message?: {
     title: string;
     text: string;
@@ -51,10 +51,10 @@ export async function login(prevState: LoginState, formData: FormData) {
       };
     } else {
       cookieStore.set({
-        name: 'userToken',
+        name: cookieUserToken,
         value: token,
-        httpOnly: false,
-        sameSite: 'none',
+        httpOnly: true,
+        sameSite: 'strict',
         secure: true,
         path: '/',
       });
@@ -86,13 +86,11 @@ export async function login(prevState: LoginState, formData: FormData) {
 export async function logout() {
   const cookieStore = cookies();
 
-  const userToken = cookieStore.get('userToken')?.value;
-  const user = cookieStore.get('user')?.value;
+  const hasUserToken = cookieStore.has(cookieUserToken);
+  const hasUser = cookieStore.has(cookieUser);
 
-  if (user) cookieStore.delete('user');
+  if (hasUserToken) cookieStore.delete(cookieUserToken);
+  if (hasUser) cookieStore.delete(cookieUser);
 
-  if (userToken) {
-    cookieStore.delete('userToken');
-    redirect('/nodehive/login');
-  }
+  redirect('/nodehive/login');
 }

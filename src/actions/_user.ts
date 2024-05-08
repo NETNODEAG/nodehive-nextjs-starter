@@ -1,7 +1,7 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { createServerClient } from '@/nodehive/client';
+import { cookieUserToken, createServerClient } from '@/nodehive/client';
 
 /**
  * Get user
@@ -12,11 +12,13 @@ export async function getUser() {
   const cookieStore = cookies();
   const client = createServerClient();
 
-  const userToken = cookieStore.get('userToken')?.value;
+  const hasUserToken = cookieStore.has(cookieUserToken);
 
-  if (!userToken) {
+  if (!hasUserToken) {
     return { user: null };
   }
+
+  const userToken = cookieStore.get(cookieUserToken)?.value;
 
   const userData = await client.fetchUserDetails(userToken);
 
@@ -34,10 +36,10 @@ export async function saveUserDetails(user) {
   const cookieStore = cookies();
 
   cookieStore.set({
-    name: 'user',
+    name: process.env.NEXT_PUBLIC_COOKIE_USER,
     value: JSON.stringify(user),
-    httpOnly: false,
-    sameSite: 'none',
+    httpOnly: true,
+    sameSite: 'strict',
     secure: true,
     path: '/',
   });
@@ -51,11 +53,12 @@ export async function saveUserDetails(user) {
 export async function readUserDetails() {
   const cookieStore = cookies();
 
-  const user = cookieStore.get('user')?.value;
+  const hasUser = cookieStore.has(process.env.NEXT_PUBLIC_COOKIE_USER);
+  const user = cookieStore.get(process.env.NEXT_PUBLIC_COOKIE_USER)?.value;
 
-  if (!user) {
+  if (!hasUser) {
     return null;
   }
 
-  return JSON.parse(cookieStore.get('user')?.value);
+  return JSON.parse(user);
 }

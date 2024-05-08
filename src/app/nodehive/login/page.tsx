@@ -1,12 +1,13 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { cookieUserToken } from '@/nodehive/client';
 import LoginForm from '@/nodehive/components/auth/login-form';
 
 export default function Page() {
   const cookieStore = cookies();
-  const userToken = cookieStore.get('userToken')?.value;
+  const hasUserToken = cookieStore.has(cookieUserToken);
 
-  if (userToken !== '' && userToken !== undefined) {
+  if (hasUserToken) {
     redirect('/nodehive/account');
   }
 
