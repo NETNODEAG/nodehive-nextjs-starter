@@ -18,10 +18,9 @@ export const NodeHiveConfig = {
       addFields: ['title', 'field_tags'],
       addInclude: ['field_tags'],
     },
-
     'nodehive_fragment--space_logo': {
       addFilter: [['status', '1']],
-      addFields: ['title', 'field_logo'],
+      addFields: ['title', 'field_logo', 'drupal_internal__fid'],
       addInclude: ['field_logo'],
     },
   },
