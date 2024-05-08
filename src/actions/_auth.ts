@@ -54,7 +54,7 @@ export async function login(prevState: LoginState, formData: FormData) {
         name: cookieUserToken,
         value: token,
         httpOnly: true,
-        sameSite: 'strict',
+        sameSite: 'none',
         secure: true,
         path: '/',
       });

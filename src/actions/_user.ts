@@ -39,7 +39,7 @@ export async function saveUserDetails(user) {
     name: process.env.NEXT_PUBLIC_COOKIE_USER,
     value: JSON.stringify(user),
     httpOnly: true,
-    sameSite: 'strict',
+    sameSite: 'none',
     secure: true,
     path: '/',
   });
