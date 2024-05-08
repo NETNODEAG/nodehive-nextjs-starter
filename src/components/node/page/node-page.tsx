@@ -1,4 +1,4 @@
-import AuthWrapper from '@/nodehive/components/auth/auth-wrapper';
+import { AuthWrapper } from '@/nodehive/components/auth/auth-wrapper';
 import NodeEditButton from '@/nodehive/components/visual-editor/node/node-edit-button';
 import { DrupalNode, DrupalParagraph } from '@/nodehive/types';
 

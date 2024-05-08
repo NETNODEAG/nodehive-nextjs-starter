@@ -5,10 +5,24 @@ interface AuthWrapperProps {
   children: React.ReactNode;
 }
 
-export default function AuthWrapper({ children }: AuthWrapperProps) {
+export function AuthWrapper({ children }: AuthWrapperProps) {
   const cookieStore = cookies();
 
   const userToken = cookieStore.has(cookieUserToken);
 
-  if (userToken) return children;
+  if (userToken) {
+    return (
+      <div className="hover:outline-dashed hover:outline-2 hover:-outline-offset-2">
+        children
+      </div>
+    );
+  }
+}
+
+export function NotLoggedIn({ children }: AuthWrapperProps) {
+  const cookieStore = cookies();
+
+  const userToken = cookieStore.has(cookieUserToken);
+
+  if (!userToken) return children;
 }

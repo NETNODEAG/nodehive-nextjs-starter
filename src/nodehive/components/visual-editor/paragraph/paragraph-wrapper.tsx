@@ -1,3 +1,8 @@
+import {
+  AuthWrapper,
+  NotLoggedIn,
+} from '@/nodehive/components/auth/auth-wrapper';
+
 import ParagraphEditButton from './paragraph-edit-button';
 
 export default function ParagraphWrapper({
@@ -29,16 +34,20 @@ export default function ParagraphWrapper({
       data-nodehive-langcode={entity.langcode}
       className="relative rounded-lg border border-black p-10"
     >
-      <ParagraphEditButton
-        label="Edit Paragraph"
-        type="paragraph"
-        uuid={id}
-        id={drupal_internal__target_id}
-        parentId={parent_id}
-        langcode={entity.langcode}
-      />
+      <AuthWrapper>
+        <ParagraphEditButton
+          label="Edit Paragraph"
+          type="paragraph"
+          uuid={id}
+          id={drupal_internal__target_id}
+          parentId={parent_id}
+          langcode={entity.langcode}
+        />
 
-      {children}
+        {children}
+      </AuthWrapper>
+
+      <NotLoggedIn>{children}</NotLoggedIn>
     </div>
   );
 }

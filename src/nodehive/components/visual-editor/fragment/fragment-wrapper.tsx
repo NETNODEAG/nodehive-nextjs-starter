@@ -1,3 +1,8 @@
+import {
+  AuthWrapper,
+  NotLoggedIn,
+} from '@/nodehive/components/auth/auth-wrapper';
+
 import FragmentEditButton from './fragment-edit-button';
 
 export default function FragmentWrapper({
@@ -6,9 +11,7 @@ export default function FragmentWrapper({
   editmode = 'sidebar',
   children,
 }) {
-  const { meta, type, id, drupal_internal__fid } = entity;
-
-  //console.log('FragmentWrapper', entity);
+  const { type, id, drupal_internal__fid } = entity;
 
   if (!type) {
     return <div>no visual editor {children}</div>;
@@ -25,13 +28,17 @@ export default function FragmentWrapper({
       data-nodehive-uuid={id}
       className="relative block"
     >
-      <FragmentEditButton
-        label="Edit Fragment"
-        type="fragment"
-        uuid={id}
-        id={drupal_internal__fid}
-      />
-      {children}
+      <AuthWrapper>
+        <FragmentEditButton
+          label="Edit Fragment"
+          type="fragment"
+          uuid={id}
+          id={drupal_internal__fid}
+        />
+        {children}
+      </AuthWrapper>
+
+      <NotLoggedIn>{children}</NotLoggedIn>
     </div>
   );
 }
