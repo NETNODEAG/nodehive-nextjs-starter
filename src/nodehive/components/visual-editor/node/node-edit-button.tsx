@@ -4,18 +4,12 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { EditIcon } from '@/lib/icons';
-import { cn, formatDate } from '@/lib/utils';
 
 export default function NodeEditButton({ node }) {
   const pathname = usePathname();
 
   const nodeData = node?.data;
   const internalId = nodeData?.drupal_internal__nid;
-  const title = nodeData?.title;
-  const created = nodeData?.created;
-  const changed = nodeData?.changed;
-  const moderationState = nodeData?.moderation_state;
-  const language = nodeData?.langcode;
 
   const [isInIframe, setIsInIframe] = useState(false);
 
@@ -45,55 +39,14 @@ export default function NodeEditButton({ node }) {
   }, []);
 
   return (
-    <div className="w-full">
-      <div
-        className={cn(
-          moderationState === 'published' &&
-            'bg-primary-600/10 text-primary-900',
-          moderationState === 'draft' && 'bg-[#fdf7e4] text-[#3d3a1d]',
-          moderationState === 'archived' && 'bg-[#f7e2e0] text-[#3d1d1d]',
-          'flex items-center justify-between gap-4 rounded-lg bg-primary-600 p-3 text-xs'
-        )}
+    <div className="absolute -top-10 right-0 flex transform-gpu gap-2 antialiased opacity-75 transition-all duration-75 ease-in-out hover:scale-105 hover:opacity-100">
+      <button
+        onClick={editNode}
+        className="flex gap-2 rounded bg-primary-700 px-3 py-2 text-xs font-bold text-white shadow-lg transition-colors hover:bg-primary-900"
       >
-        <div>
-          <h2 className="text-xl font-bold text-white">{title}</h2>
-          <ul className="flex flex-col text-white lg:flex-row  lg:gap-2 ">
-            <li>
-              <span>
-                <strong>Id:</strong> {internalId}
-              </span>
-            </li>
-            <li>
-              <span>
-                <strong>Created:</strong> {formatDate(created)}
-              </span>
-            </li>
-            <li>
-              <span>
-                <strong>Changed:</strong> {formatDate(changed)}
-              </span>
-            </li>
-            <li>
-              <span>
-                <strong>Moderation state:</strong> {moderationState}
-              </span>
-            </li>
-            <li>
-              <span>
-                <strong>Language:</strong> {language}
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <button
-          onClick={editNode}
-          className="flex gap-2 rounded-lg border-2 border-white p-2 text-xs font-bold text-white transition-colors hover:bg-teal-700"
-        >
-          <EditIcon />
-          Edit
-        </button>
-      </div>
+        <EditIcon />
+        Edit {nodeData?.title}
+      </button>
     </div>
   );
 }
