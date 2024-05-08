@@ -26,7 +26,7 @@ export default function FragmentWrapper({
       data-nodehive-type="fragment"
       data-nodehive-id={drupal_internal__fid}
       data-nodehive-uuid={id}
-      className="relative block"
+      className="relative"
     >
       <AuthWrapper>
         <FragmentEditButton

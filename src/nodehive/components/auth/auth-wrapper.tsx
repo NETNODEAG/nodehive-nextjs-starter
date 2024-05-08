@@ -10,13 +10,7 @@ export function AuthWrapper({ children }: AuthWrapperProps) {
 
   const userToken = cookieStore.has(cookieUserToken);
 
-  if (userToken) {
-    return (
-      <div className="rounded-lg outline-primary-700 hover:outline-dashed hover:outline-2 hover:-outline-offset-2">
-        {children}
-      </div>
-    );
-  }
+  if (userToken) return children;
 }
 
 export function NotLoggedIn({ children }: AuthWrapperProps) {

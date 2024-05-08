@@ -1,22 +1,37 @@
-export default function AreaWrapper({ entity, children }) {
-  const { id, drupal_internal__fid, type, machine_name } = entity;
+import { AuthWrapper, NotLoggedIn } from '../../auth/auth-wrapper';
+import AreaEditButton from './area-edit-button';
 
-  const dynamicId = `area-${drupal_internal__fid}`;
+export default function AreaWrapper({
+  entity,
+  enable = true,
+  editmode = 'sidebar',
+  children,
+}) {
+  const { type, id, drupal_internal__fid, machine_name } = entity;
 
   return (
     <div
-      id={dynamicId}
-      area-type={machine_name}
+      id={id}
+      area-type={type}
+      data-nodehive-enable={enable.toString()}
+      data-nodehive-editmode={editmode} // edit-form, sidebar, modal, inline
       data-nodehive-type="area"
       data-nodehive-id={drupal_internal__fid}
       data-nodehive-uuid={id}
       className="relative w-full overflow-hidden rounded-lg p-2 ring-2 ring-primary-600/10 md:p-6"
     >
-      <p className="mb-2 max-w-2xl text-xs leading-6 text-neutral-500">
-        {type}--{machine_name}
-      </p>
+      <AuthWrapper>
+        <AreaEditButton
+          label="Edit"
+          type="area"
+          uuid={id}
+          id={drupal_internal__fid}
+        />
 
-      <div className="flex justify-between gap-4">{children}</div>
+        {children}
+      </AuthWrapper>
+
+      <NotLoggedIn>{children}</NotLoggedIn>
     </div>
   );
 }

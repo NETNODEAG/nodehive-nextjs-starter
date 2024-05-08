@@ -34,12 +34,12 @@ export default function FragmentEditButton({ label, type, uuid, id }) {
   }
 
   return (
-    <div className="absolute right-0 top-0 m-2 flex transform-gpu gap-2 antialiased opacity-75 transition-all duration-75 ease-in-out hover:scale-105 hover:opacity-100">
+    <div className="absolute -right-2 -top-2 flex transform-gpu gap-2 antialiased opacity-75 transition-all duration-75 ease-in-out hover:scale-105 hover:opacity-100">
       <button
         onClick={editComponent}
-        className="flex gap-2 rounded bg-primary-700 px-3 py-2 text-xs font-bold text-white shadow-lg transition-colors hover:bg-primary-900"
+        className="flex gap-2 rounded bg-primary-700 px-2 py-2 text-xs font-bold text-white shadow-lg transition-colors hover:bg-primary-900"
       >
-        <span>{label}</span>
+        <span className="sr-only">{label}</span>
 
         <EditIcon />
       </button>

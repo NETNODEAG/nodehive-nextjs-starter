@@ -35,16 +35,18 @@ export default function ParagraphWrapper({
       className="relative"
     >
       <AuthWrapper>
-        <ParagraphEditButton
-          label="Edit Paragraph"
-          type="paragraph"
-          uuid={id}
-          id={drupal_internal__target_id}
-          parentId={parent_id}
-          langcode={entity.langcode}
-        />
+        <div className="rounded-lg outline-primary-700 hover:outline-dashed hover:outline-2 hover:-outline-offset-2">
+          <ParagraphEditButton
+            label="Edit Paragraph"
+            type="paragraph"
+            uuid={id}
+            id={drupal_internal__target_id}
+            parentId={parent_id}
+            langcode={entity.langcode}
+          />
 
-        {children}
+          {children}
+        </div>
       </AuthWrapper>
 
       <NotLoggedIn>{children}</NotLoggedIn>
