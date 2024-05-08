@@ -54,27 +54,12 @@ To change the default landing page of your application, follow the steps outline
 2. Change Value: Find the `STARTPAGE_SLUG` constant and replace its current value with your desired Node ID as a string (e.g., "12345").
 3. Save and Test: Save the file, then run the application to confirm that the new start page matches the specified Node ID.
 
-
-
 ## 3. Deployment
 
-### 3.1 Deploy to Vercel
+### 3.1 Deploy on Vercel
 
-The most common way to create a Deployment on Vercel is through pushing code to Git repositories Creating an automatic Deployment begins by importing a Git repository on Vercel.
+The most straightforward method to deploy your NodeHive Next.js application is to use the Vercel Platform, which is developed by the creators of Next.js.
 
-#### 3.1.1 New project
+To initiate a new project quickly, simply click the "Deploy" button ⚡️
 
-The next step is to create a new project from the Vercel Dashboard. Follow https://vercel.com/new/netnodeag
-
-#### 3.1.2 Project settings
-
-##### Build & Development Settings
-
-1. Set the Framework Preset to Next.js
-2. Use the Node version specified within the .nvmrc file.
-3. Provide the following environment variables:
-
-- `NEXT_IMAGE_DOMAIN`
-- `NEXT_PUBLIC_DRUPAL_REST_BASE_URL`
-- `NEXT_PUBLIC_DRUPAL_BASE_URL`
-
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNETNODEAG%2Fnodehive-nextjs-starter&env=NEXT_PUBLIC_DRUPAL_REST_BASE_URL,NEXT_PUBLIC_DRUPAL_BASE_URL,NEXT_IMAGE_DOMAIN,NEXT_PUBLIC_FRONTEND_BASE_URL,NEXT_PUBLIC_COOKIE_USER,NEXT_PUBLIC_COOKIE_USER_TOKEN,NEXT_PUBLIC_DRUPAL_NODEHIVE_SPACE_ID,NODEHIVE_STARTPAGE_SLUG,NODEHIVE_DEFAULT_LANGUAGE&project-name=nodehive-nextjs-starter&repository-name=nodehive-nextjs-starter)
