@@ -13,11 +13,17 @@ export interface ParagraphNewsletterProps {
 export default function ParagraphNewsletter({
   paragraph,
 }: ParagraphNewsletterProps) {
+  const title = paragraph?.field_title;
+
   const initialState: SubscribeState = {} as SubscribeState;
   const [state, dispatch] = useFormState(subscribe, initialState);
 
   return (
     <section data-paragraph-type="Newsletter">
+      <h2 className="mb-4 mt-2 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">
+        {title}
+      </h2>
+
       <form action={dispatch} className="space-y-4">
         <div className="flex flex-col gap-4 md:flex-row">
           <div>

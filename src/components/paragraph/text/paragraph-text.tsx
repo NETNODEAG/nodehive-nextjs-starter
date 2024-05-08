@@ -8,20 +8,20 @@ export interface ParagraphTextProps {
 }
 
 export default function ParagraphText({ paragraph }: ParagraphTextProps) {
-  const text = paragraph.field_text;
-  const title = paragraph?.field_title;
   const byline = paragraph?.field_byline;
+  const title = paragraph?.field_title;
+  const text = paragraph?.field_text;
   const image = paragraph?.field_image;
-  const image_url =
+  const imageUrl =
     paragraph.field_image[0]?.field_media_image?.image_style_uri?.large;
 
   return (
     <section data-paragraph-type="Text" className="grid grid-cols-2 gap-2">
       <div>
         {byline && <h2 className="text-xl">{byline}</h2>}
-        <h1 className="mb-4 mt-2 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">
+        <h2 className="mb-4 mt-2 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">
           {title}
-        </h1>
+        </h2>
         {text && (
           <FormattedText html={text?.processed} className="prose max-w-prose" />
         )}
@@ -29,10 +29,10 @@ export default function ParagraphText({ paragraph }: ParagraphTextProps) {
 
       {image && (
         <div className="lg:pl-20">
-          {image_url && (
+          {imageUrl && (
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
-                src={image_url}
+                src={imageUrl}
                 priority={true}
                 alt=""
                 width={300}
