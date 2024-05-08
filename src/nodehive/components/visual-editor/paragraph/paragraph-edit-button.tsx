@@ -43,22 +43,15 @@ export default function VisualParagraphEditButton({
   }
 
   return (
-    <>
-      <div className="absolute right-1 top-0 flex transform-gpu gap-2 antialiased opacity-75 transition-all duration-75 ease-in-out hover:scale-125 hover:opacity-100">
-        {/** 
-        <p className="mb-2 max-w-2xl text-xs leading-6 text-neutral-500">
-          {type}
-        </p>
-        */}
-        <button
-          onClick={editComponent}
-          className="rounded-lg bg-primary-600 p-1 text-xs font-bold text-white transition-colors hover:bg-primary-700"
-        >
-          <span className="sr-only">{label}df</span>
+    <div className="absolute right-0 top-0 m-2 flex transform-gpu gap-2 antialiased opacity-75 transition-all duration-75 ease-in-out hover:scale-105 hover:opacity-100">
+      <button
+        onClick={editComponent}
+        className="flex gap-2 rounded bg-primary-700 px-3 py-2 text-xs font-bold text-white shadow-lg transition-colors hover:bg-primary-900"
+      >
+        <span>{label}</span>
 
-          <EditIcon />
-        </button>
-      </div>
-    </>
+        <EditIcon />
+      </button>
+    </div>
   );
 }

@@ -19,7 +19,7 @@ export default function ParagraphNewsletter({
   const [state, dispatch] = useFormState(subscribe, initialState);
 
   return (
-    <section data-paragraph-type="Newsletter">
+    <section data-paragraph-type="Newsletter" className="rounded-lg border p-8">
       <h2 className="mb-4 mt-2 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">
         {title}
       </h2>

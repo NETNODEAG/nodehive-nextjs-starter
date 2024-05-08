@@ -32,7 +32,7 @@ export default function ParagraphWrapper({
       data-nodehive-id={drupal_internal__target_id}
       data-nodehive-uuid={id}
       data-nodehive-langcode={entity.langcode}
-      className="relative rounded-lg border border-black p-10"
+      className="relative"
     >
       <AuthWrapper>
         <ParagraphEditButton

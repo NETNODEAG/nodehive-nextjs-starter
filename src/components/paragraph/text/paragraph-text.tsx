@@ -16,7 +16,10 @@ export default function ParagraphText({ paragraph }: ParagraphTextProps) {
     paragraph.field_image[0]?.field_media_image?.image_style_uri?.large;
 
   return (
-    <section data-paragraph-type="Text" className="grid grid-cols-2 gap-2">
+    <section
+      data-paragraph-type="Text"
+      className="grid grid-cols-2 gap-2 rounded-lg border p-8"
+    >
       <div>
         {byline && <h2 className="text-xl">{byline}</h2>}
         <h2 className="mb-4 mt-2 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">

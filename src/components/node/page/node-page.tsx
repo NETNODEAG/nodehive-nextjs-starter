@@ -14,7 +14,7 @@ export default function NodePage({ node }: NodePageProps) {
   const paragraphs = nodeData?.field_paragraphs;
 
   return (
-    <article data-node-type="Page" className="space-y-8">
+    <article data-node-type="Page" className="space-y-16">
       <AuthWrapper>
         <NodeEditButton node={node} />
       </AuthWrapper>
