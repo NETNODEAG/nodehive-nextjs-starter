@@ -1,7 +1,11 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { cookieUserToken, createServerClient } from '@/nodehive/client';
+import {
+  cookieUser,
+  cookieUserToken,
+  createServerClient,
+} from '@/nodehive/client';
 
 /**
  * Get user
@@ -36,7 +40,7 @@ export async function saveUserDetails(user) {
   const cookieStore = cookies();
 
   cookieStore.set({
-    name: process.env.NEXT_PUBLIC_COOKIE_USER,
+    name: cookieUser,
     value: JSON.stringify(user),
     httpOnly: true,
     sameSite: 'none',
@@ -53,8 +57,8 @@ export async function saveUserDetails(user) {
 export async function readUserDetails() {
   const cookieStore = cookies();
 
-  const hasUser = cookieStore.has(process.env.NEXT_PUBLIC_COOKIE_USER);
-  const user = cookieStore.get(process.env.NEXT_PUBLIC_COOKIE_USER)?.value;
+  const hasUser = cookieStore.has(cookieUser);
+  const user = cookieStore.get(cookieUser)?.value;
 
   if (!hasUser) {
     return null;
